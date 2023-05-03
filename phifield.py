@@ -50,6 +50,7 @@ interfmobility_L_input = st.number_input("Enter interfacial mobility L (e.g. 1.0
 interfacial_mobility_L = interfmobility_L_input
 ####################################################################
 st.title('Bulk free energies')
+st.write(f"WORK IN PROGRESS 04.05.2023 THURSDAY")
 ####################################################################
 # Define the user-defined functions
 def bulk_energy(x, xeq, a, b, c):

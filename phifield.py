@@ -69,12 +69,11 @@ st.write(f"Diffusion mobility M  in scaled units: {scaled_diffusion_mobility_M}"
 scaled_interfacial_mobility_L=interfacial_mobility_L*factor_interfmobility
 st.write(f"Interfacial mobility L  in scaled units: {scaled_interfacial_mobility_L}")
 
-## How to cite this content:
-If you use this calculator for your work, please cite:
-    
-    "Kunwar, A., Yousefi, E., Zuo, X., Sun, Y., Seveno, D., Guo, M., & Moelans, N. (2022). Multi-phase field simulation of
+st.title('How to cite this content:')
+st.write('If you use this calculator for your work, please cite:')
+st.write( "Kunwar, A., Yousefi, E., Zuo, X., Sun, Y., Seveno, D., Guo, M., & Moelans, N. (2022). Multi-phase field simulation of
     Al3Ni2 intermetallic growth at liquid Al/solid Ni interface using MD computed interfacial energies.
-    International Journal of Mechanical Sciences, 215, 106930. https://doi.org/10.1016/j.ijmecsci.2021.106930 "
+    International Journal of Mechanical Sciences, 215, 106930. https://doi.org/10.1016/j.ijmecsci.2021.106930 ")
 
 
 

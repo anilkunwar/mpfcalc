@@ -50,45 +50,48 @@ interfmobility_L_input = st.number_input("Enter interfacial mobility L (e.g. 1.0
 interfacial_mobility_L = interfmobility_L_input
 ####################################################################
 st.title('Bulk free energies')
-st.write(f"WORK IN PROGRESS 04.05.2023 THURSDAY")
+#st.write(f"WORK IN PROGRESS 04.05.2023 THURSDAY")
+st.write(f"The common term (N) is the term 10^n which is multiplied to the coefficients a, b and c in G. E.g. G = N*[a(x-xeq)^2+b(x-xeq)+c] J/mol")
+amplitude_input = st.number_input("Enter the common term indicating range of G (e.g. from 1.0E+04 J/mol to 1.0E+06 J/mol) :", value=1e+5, format='%.2e', step=1e+2)
+gibbs_magnitude = amplitude_input
 ####################################################################
 #st.title('Bulk free energies')
 ####################################################################
 # Define the user-defined functions
 def phase1(x, xeq, a, b, c):
-    y = (a * (x-xeq)**2 + b * (x-xeq) + c)
-    st.write(f"Parabolic Fitted G in J/mol: y = {a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c}")
+    y = gibbs_magnitude*(a * (x-xeq)**2 + b * (x-xeq) + c)
+    st.write(f"Parabolic Fitted G in J/mol: y = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
     return y
 
 def phase2(x, xeq, a, b, c):
-    y = (a * (x-xeq)**2 + b * (x-xeq) + c)
-    st.write(f"Parabolic Fitted G in J/mol: y = {a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c}")
+    y = gibbs_magnitude*(a * (x-xeq)**2 + b * (x-xeq) + c)
+    st.write(f"Parabolic Fitted G in J/mol: y = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
     return y
     
 def phase3(x, xeq, a, b, c):
-    y = (a * (x-xeq)**2 + b * (x-xeq) + c)
-    st.write(f"Parabolic Fitted G in J/mol: y = {a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c}")
+    y = gibbs_magnitude*(a * (x-xeq)**2 + b * (x-xeq) + c)
+    st.write(f"Parabolic Fitted G in J/mol: y = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
     return y
 
 # Get user input for function parameters and colors
 st.sidebar.subheader('phase_1')
-a1 = st.sidebar.slider('Select value for a1', -10.0, 10.0, 1.0, key='a1')
-b1 = st.sidebar.slider('Select value for b1', -10.0, 10.0, 0.0, key='b1')
-c1 = st.sidebar.slider('Select value for c1', -10.0, 10.0, 0.0, key='c1')
-xeq1 = st.sidebar.slider('Select value for xeq1', 0.0, 1.0, 0.1, key='xeq1')
+a1 = st.sidebar.slider('Select value for a1', -1.0, 1.0, 0.1,  key='a1')
+b1 = st.sidebar.slider('Select value for b1', -1.0, 1.0, 0.1,  key='b1')
+c1 = st.sidebar.slider('Select value for c1', -1.0, 1.0, 0.1,  key='c1')
+xeq1 = st.sidebar.slider('Select value for xeq1', 0.0, 1.0, 0.1,   key='xeq1')
 color1 = st.sidebar.color_picker('Select color for phase one', '#ff5733', key='color1')
 
 st.sidebar.subheader('phase_2')
-a2 = st.sidebar.slider('Select value for a2', -10.0, 10.0, 1.0, key='a2')
-b2 = st.sidebar.slider('Select value for b2', -10.0, 10.0, 0.0, key='b2')
-c2 = st.sidebar.slider('Select value for c2', -10.0, 10.0, 0.0, key='c2')
+a2 = st.sidebar.slider('Select value for a2', -1.0, 1.0, 0.1,  key='a2')
+b2 = st.sidebar.slider('Select value for b2', -1.0, 1.0, 0.1,  key='b2')
+c2 = st.sidebar.slider('Select value for c2', -1.0, 1.0, 0.1,  key='c2')
 xeq2 = st.sidebar.slider('Select value for xeq2', 0.0, 1.0, 0.1, key='xeq2')
 color2 = st.sidebar.color_picker('Select color for phase two', '#338fff', key='color2')    
     
 st.sidebar.subheader('phase_3')
-a3 = st.sidebar.slider('Select value for a3', -10.0, 10.0, 1.0, key='a3')
-b3 = st.sidebar.slider('Select value for b3', -10.0, 10.0, 0.0, key='b3')
-c3 = st.sidebar.slider('Select value for c3', -10.0, 10.0, 0.0, key='c3')
+a3 = st.sidebar.slider('Select value for a3', -1.0, 1.0, 0.1,  key='a3')
+b3 = st.sidebar.slider('Select value for b3', -1.0, 1.0, 0.1,  key='b3')
+c3 = st.sidebar.slider('Select value for c3', -1.0, 1.0, 0.1,  key='c3')
 xeq3 = st.sidebar.slider('Select value for xeq3', 0.0, 1.0, 0.1, key='xeq3')
 color3 = st.sidebar.color_picker('Select color for phase three', '#000000', key='color3')     
 
@@ -100,6 +103,7 @@ y1 = phase1(x, xeq1, a1, b1, c1)
 y2 = phase2(x, xeq2, a2, b2, c2)
 y3 = phase3(x, xeq3, a3, b3, c3)
 
+############J/mol###################################################
 # Create a dataframe with x and y values for each function
 df1 = pd.DataFrame({'x': x, 'y': y1})
 df2 = pd.DataFrame({'x': x, 'y': y2})
@@ -110,7 +114,7 @@ df3['function'] = 'phase3'
 df = pd.concat([df1, df2, df3], ignore_index=True)
 
 # Set chart properties for both functions
-chart = alt.Chart(df).mark_line().encode(
+chart1 = alt.Chart(df).mark_line().encode(
     x=alt.X('x', axis=alt.Axis(title='X-axis', labelFontSize=20, titleFontSize=20)),
     y=alt.Y('y', axis=alt.Axis(title='Y-axis', labelFontSize=20, titleFontSize=20)),
     color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
@@ -121,16 +125,64 @@ chart = alt.Chart(df).mark_line().encode(
 ).configure_line(
     strokeWidth=5
 )
+##########################################################################
+############J/m3##########################################################
+y1=y1/molar_volume
+y2=y2/molar_volume
+y3=y3/molar_volume
+# Create a dataframe with x and y values for each function
+df1 = pd.DataFrame({'x': x, 'y': y1})
+df2 = pd.DataFrame({'x': x, 'y': y2})
+df3 = pd.DataFrame({'x': x, 'y': y3})
+df1['function'] = 'phase1'
+df2['function'] = 'phase2'
+df3['function'] = 'phase3'
+df = pd.concat([df1, df2, df3], ignore_index=True)
 
+# Set chart properties for both functions
+chart2 = alt.Chart(df).mark_line().encode(
+    x=alt.X('x', axis=alt.Axis(title='X-axis', labelFontSize=20, titleFontSize=20)),
+    y=alt.Y('y', axis=alt.Axis(title='Y-axis', labelFontSize=20, titleFontSize=20)),
+    color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
+).properties(
+    width=1400,
+    height=800,
+    title=alt.TitleParams(text="Free energy density in J/m^3", fontSize=20)
+).configure_line(
+    strokeWidth=5
+)#.interactive()
+##########################################################################
+############scaled##########################################################
+y1=y1*factor_bulk
+y2=y2*factor_bulk
+y3=y3*factor_bulk
+# Create a dataframe with x and y values for each function
+df1 = pd.DataFrame({'x': x, 'y': y1})
+df2 = pd.DataFrame({'x': x, 'y': y2})
+df3 = pd.DataFrame({'x': x, 'y': y3})
+df1['function'] = 'phase1'
+df2['function'] = 'phase2'
+df3['function'] = 'phase3'
+df = pd.concat([df1, df2, df3], ignore_index=True)
+
+# Set chart properties for both functions
+chart3 = alt.Chart(df).mark_line().encode(
+    x=alt.X('x', axis=alt.Axis(title='X-axis', labelFontSize=20, titleFontSize=20)),
+    y=alt.Y('y', axis=alt.Axis(title='Y-axis', labelFontSize=20, titleFontSize=20)),
+    color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
+).properties(
+    width=1400,
+    height=800,
+    title=alt.TitleParams(text="Free energy density in scaled units", fontSize=20)
+).configure_line(
+    strokeWidth=5
+).interactive()
+##########################################################################
 # Draw the chart
-st.altair_chart(chart, use_container_width=True)
-      
+st.altair_chart(chart1, use_container_width=True)
+st.altair_chart(chart2, use_container_width=True)
+st.altair_chart(chart3, use_container_width=True)
 ####################################################################
-# Define the user-defined functions
-def bulk_energy(x, xeq, a, b, c):
-    y = (a * (x-xeq)**2 + b * (x-xeq) + c)
-    st.write(f"Parabolic Fitted G in J/mol: y = {a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c}")
-    return y
 ####################################################################
 st.title('Scaled Values of Physical Quantities')
 ####################################################################

@@ -52,6 +52,80 @@ interfacial_mobility_L = interfmobility_L_input
 st.title('Bulk free energies')
 st.write(f"WORK IN PROGRESS 04.05.2023 THURSDAY")
 ####################################################################
+#st.title('Bulk free energies')
+####################################################################
+# Define the user-defined functions
+def phase1(x, xeq, a, b, c):
+    y = (a * (x-xeq)**2 + b * (x-xeq) + c)
+    st.write(f"Parabolic Fitted G in J/mol: y = {a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c}")
+    return y
+
+def phase2(x, xeq, a, b, c):
+    y = (a * (x-xeq)**2 + b * (x-xeq) + c)
+    st.write(f"Parabolic Fitted G in J/mol: y = {a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c}")
+    return y
+    
+def phase3(x, xeq, a, b, c):
+    y = (a * (x-xeq)**2 + b * (x-xeq) + c)
+    st.write(f"Parabolic Fitted G in J/mol: y = {a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c}")
+    return y
+
+# Get user input for function parameters and colors
+st.sidebar.subheader('phase_1')
+a1 = st.sidebar.slider('Select value for a1', -10.0, 10.0, 1.0, key='a1')
+b1 = st.sidebar.slider('Select value for b1', -10.0, 10.0, 0.0, key='b1')
+c1 = st.sidebar.slider('Select value for c1', -10.0, 10.0, 0.0, key='c1')
+xeq1 = st.sidebar.slider('Select value for c1', 0.0, 1.0, 0.1, key='xeq1')
+color1 = st.sidebar.color_picker('Select color for phase one', '#ff5733', key='color1')
+
+st.sidebar.subheader('phase_2')
+a2 = st.sidebar.slider('Select value for a2', -10.0, 10.0, 1.0, key='a2')
+b2 = st.sidebar.slider('Select value for b2', -10.0, 10.0, 0.0, key='b2')
+c2 = st.sidebar.slider('Select value for c2', -10.0, 10.0, 0.0, key='c2')
+xeq2 = st.sidebar.slider('Select value for c1', 0.0, 1.0, 0.1, key='xeq2')
+color2 = st.sidebar.color_picker('Select color for phase two', '#338fff', key='color2')    
+    
+st.sidebar.subheader('phase_3')
+a3 = st.sidebar.slider('Select value for a3', -10.0, 10.0, 1.0, key='a3')
+b3 = st.sidebar.slider('Select value for b3', -10.0, 10.0, 0.0, key='b3')
+c3 = st.sidebar.slider('Select value for c3', -10.0, 10.0, 0.0, key='c3')
+xeq3 = st.sidebar.slider('Select value for c1', 0.0, 1.0, 0.1, key='xeq3')
+color3 = st.sidebar.color_picker('Select color for phase three', '#000000', key='color3')     
+
+# Generate x values for the functions
+x = np.linspace(0, 1, 10)
+
+# Evaluate the functions for the given parameters
+y1 = phase1(x, xeq1, a1, b1, c1)
+y2 = phase2(x, xeq2, a2, b2, c2)
+y3 = phase3(x, xeq3, a3, b3, c3)
+
+# Create a dataframe with x and y values for each function
+df1 = pd.DataFrame({'x': x, 'y': y1})
+df2 = pd.DataFrame({'x': x, 'y': y2})
+df3 = pd.DataFrame({'x': x, 'y': y3})
+df1['function'] = 'phase1'
+df2['function'] = 'phase2'
+df3['function'] = 'phase3'
+df = pd.concat([df1, df2, df3], ignore_index=True)
+
+# Set chart properties for both functions
+chart = alt.Chart(df).mark_line().encode(
+    x=alt.X('x', axis=alt.Axis(title='X-axis', labelFontSize=20, titleFontSize=20)),
+    y=alt.Y('y', axis=alt.Axis(title='Y-axis', labelFontSize=20, titleFontSize=20)),
+    color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
+).properties(
+    width=1400,
+    height=800,
+    title=alt.TitleParams(text="Gibbs free energy in J/mol", fontSize=20)
+).configure_line(
+    strokeWidth=5
+)
+
+# Draw the chart
+st.altair_chart(chart, use_container_width=True)
+      
+####################################################################
 # Define the user-defined functions
 def bulk_energy(x, xeq, a, b, c):
     y = (a * (x-xeq)**2 + b * (x-xeq) + c)

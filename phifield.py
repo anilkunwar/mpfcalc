@@ -54,6 +54,7 @@ st.title('Bulk free energies')
 st.write(f"The common term (N) is the term 10^n which is multiplied to the coefficients a, b and c in G. E.g. G = N*[a(x-xeq)^2+b(x-xeq)+c] J/mol")
 amplitude_input = st.number_input("Enter the common term (N) indicating range of G (e.g. from 1.0E+04 J/mol to 1.0E+06 J/mol) :", value=1e+5, format='%.2e', step=1e+2)
 gibbs_magnitude = amplitude_input
+st.write(f"Change the coefficients a_i, b_i and c_i, and the constant xeq_i so that G becomes negative")
 ####################################################################
 #st.title('Bulk free energies')
 ####################################################################

@@ -76,23 +76,23 @@ def phase3(x, xeq, a, b, c):
 
 # Get user input for function parameters and colors
 st.sidebar.subheader('phase_1')
-a1 = st.sidebar.slider('Select value for a1', -500.0, 500.0, 10,  key='a1')
-b1 = st.sidebar.slider('Select value for b1', -500.0, 500.0, 10,  key='b1')
-c1 = st.sidebar.slider('Select value for c1', -500.0, 500.0, 10,  key='c1')
+a1 = st.sidebar.slider('Select value for a1', -1.0, 1.0, 0.1  key='a1')
+b1 = st.sidebar.slider('Select value for b1', -1.0, 1.0, 0.1   key='b1')
+c1 = st.sidebar.slider('Select value for c1', -1.0, 1.0, 0.1   key='c1')
 xeq1 = st.sidebar.slider('Select value for xeq1', 0.0, 1.0, 0.1,   key='xeq1')
 color1 = st.sidebar.color_picker('Select color for phase one', '#ff5733', key='color1')
 
 st.sidebar.subheader('phase_2')
-a2 = st.sidebar.slider('Select value for a2', -500.0, 500.0, 10,  key='a2')
-b2 = st.sidebar.slider('Select value for b2', -500.0, 500.0, 10,  key='b2')
-c2 = st.sidebar.slider('Select value for c2', -500.0, 500.0, 10,  key='c2')
+a2 = st.sidebar.slider('Select value for a2', -1.0, 1.0, 0.1   key='a2')
+b2 = st.sidebar.slider('Select value for b2', -1.0, 1.0, 0.1   key='b2')
+c2 = st.sidebar.slider('Select value for c2', -1.0, 1.0, 0.1   key='c2')
 xeq2 = st.sidebar.slider('Select value for xeq2', 0.0, 1.0, 0.1, key='xeq2')
 color2 = st.sidebar.color_picker('Select color for phase two', '#338fff', key='color2')    
     
 st.sidebar.subheader('phase_3')
-a3 = st.sidebar.slider('Select value for a3', -500.0, 500.0, 10,  key='a3')
-b3 = st.sidebar.slider('Select value for b3', -500.0, 500.0, 10,  key='b3')
-c3 = st.sidebar.slider('Select value for c3', -500.0, 500.0, 10,  key='c3')
+a3 = st.sidebar.slider('Select value for a3', -1.0, 1.0, 0.1   key='a3')
+b3 = st.sidebar.slider('Select value for b3', -1.0, 1.0, 0.1   key='b3')
+c3 = st.sidebar.slider('Select value for c3', -1.0, 1.0, 0.1   key='c3')
 xeq3 = st.sidebar.slider('Select value for xeq3', 0.0, 1.0, 0.1, key='xeq3')
 color3 = st.sidebar.color_picker('Select color for phase three', '#000000', key='color3')     
 

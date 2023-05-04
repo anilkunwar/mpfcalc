@@ -52,7 +52,7 @@ interfacial_mobility_L = interfmobility_L_input
 st.title('Bulk free energies')
 #st.write(f"WORK IN PROGRESS 04.05.2023 THURSDAY")
 st.write(f"The common term (N) is the term 10^n which is multiplied to the coefficients a, b and c in G. E.g. G = N*[a(x-xeq)^2+b(x-xeq)+c] J/mol")
-amplitude_input = st.number_input("Enter the common term indicating range of G (e.g. from 1.0E+04 J/mol to 1.0E+06 J/mol) :", value=1e+5, format='%.2e', step=1e+2)
+amplitude_input = st.number_input("Enter the common term (N) indicating range of G (e.g. from 1.0E+04 J/mol to 1.0E+06 J/mol) :", value=1e+5, format='%.2e', step=1e+2)
 gibbs_magnitude = amplitude_input
 ####################################################################
 #st.title('Bulk free energies')
@@ -60,17 +60,17 @@ gibbs_magnitude = amplitude_input
 # Define the user-defined functions
 def phase1(x, xeq, a, b, c):
     y = gibbs_magnitude*(a * (x-xeq)**2 + b * (x-xeq) + c)
-    st.write(f"Parabolic Fitted G in J/mol: y = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
+    st.write(f"Parabolic Fitted G (phase1) in J/mol: G_phase1 = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
     return y
 
 def phase2(x, xeq, a, b, c):
     y = gibbs_magnitude*(a * (x-xeq)**2 + b * (x-xeq) + c)
-    st.write(f"Parabolic Fitted G in J/mol: y = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
+    st.write(f"Parabolic Fitted G (phase2) in J/mol: G_phase2 = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
     return y
     
 def phase3(x, xeq, a, b, c):
     y = gibbs_magnitude*(a * (x-xeq)**2 + b * (x-xeq) + c)
-    st.write(f"Parabolic Fitted G in J/mol: y = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
+    st.write(f"Parabolic Fitted G (phase3) in J/mol: G_phase3 = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
     return y
 
 # Get user input for function parameters and colors

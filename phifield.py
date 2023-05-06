@@ -40,7 +40,7 @@ st.title('Enter Physical Quantities in SI Units')
 # molar_vol_input = st.number_input("Enter molar volume (e.g. 16.29E-06 m3/mol) :", value=1e-6, format='%.18f', step=1e-6)
 molar_vol_input = st.number_input("Enter molar volume (e.g. 16.29E-06 m^3/mol) :", value=1e-6, format='%.2e', step=1e-6)
 molar_volume = molar_vol_input
-kappa_input = st.number_input("Enter KAPPA (e.g. 1.0E-8 J/m) :", value=1e-8, format='%.2e', step=1e-8)
+kappa_input = st.number_input("Enter $\kappa$ (e.g. 1.0E-8 J/m) :", value=1e-8, format='%.2e', step=1e-8)
 kappa = kappa_input
 mu_input = st.number_input("Enter MU (e.g. 1.0E+8 J/m^3) :", value=1e+8, format='%.2e', step=1e+8)
 mu = mu_input
@@ -188,7 +188,7 @@ st.altair_chart(chart3, use_container_width=True)
 st.title('Scaled Values of Physical Quantities')
 ####################################################################
 scaled_kappa = kappa*factor_kappa
-st.write(f"KAPPA in scaled units: {scaled_kappa}")
+st.write(f"$\kappa$ in scaled units: {scaled_kappa}")
 scaled_mu = mu*factor_mu
 st.write(f"MU in scaled units: {scaled_mu}")
 scaled_diffusion_mobility_M=diffusion_mobility_M*factor_mobility

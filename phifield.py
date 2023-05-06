@@ -38,7 +38,7 @@ factor_interfmobility = (length_scale)**3/(energy_scale*time_scale)
 st.title('Enter Physical Quantities in SI Units')
 ####################################################################
 # molar_vol_input = st.number_input("Enter molar volume (e.g. 16.29E-06 m3/mol) :", value=1e-6, format='%.18f', step=1e-6)
-molar_vol_input = st.number_input("Enter molar volume (e.g. 16.29E-06 m^3/mol) :", value=1e-6, format='%.2e', step=1e-6)
+molar_vol_input = st.number_input("$\Omega$ (e.g. 16.29E-06 m^3/mol) :", value=1e-6, format='%.2e', step=1e-6)
 molar_volume = molar_vol_input
 kappa_input = st.number_input("Enter $\kappa$ (e.g. 1.0E-8 J/m) :", value=1e-8, format='%.2e', step=1e-8)
 kappa = kappa_input

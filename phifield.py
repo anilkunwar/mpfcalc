@@ -52,11 +52,13 @@ interfacial_mobility_L = interfmobility_L_input
 ####################################################################
 st.title('Bulk free energies')
 #st.write(f"WORK IN PROGRESS 04.05.2023 THURSDAY")
-st.write(f"The common term (N) is the term 10^n which is multiplied to the coefficients a, b and c in G. E.g. G = N*[a(x-xeq)^2+b(x-xeq)+c] J/mol")
-amplitude_input = st.number_input("Enter the common term (N) indicating range of G (e.g. from 1.0E+04 J/mol to 1.0E+06 J/mol) :", value=1e+5, format='%.2e', step=1e+2)
+st.write(" The expression for Gibbs free energy of a phase i is given as a quadratic function: G$_i$ = N *[a$_{i}$(x-x$_{i,eq}$)$^{2}$ + b$_i$(x-x$_{i,eq}$) +c$_i$] J/mol. For three phase system i=1,2,3.")
+st.write(f"For the free energy expression of phase i, the amplitude term (N) is the value 10$^n$ which multiplies all the terms of the expression.") 
+# E.g. In G$_i$ = N*[a$_i$(x-x$_{ieq}$)$^2$+b$_i$(x-x$_{ieq}$)+c$_i$] J/mol")
+st.sidebar.subheader('Amplitude Term N of Free Energy')
+amplitude_input = st.sidebar.number_input("Enter the common term (N) indicating range of G (e.g. from 1.0E+04 J/mol to 1.0E+06 J/mol) :", value=1e+5, format='%.2e', step=1e+2)
 gibbs_magnitude = amplitude_input
-st.write(f"Change the coefficients a_i, b_i and c_i, and the constant x_eqi in the sliders at the left side inorder to make G possess negative values")
-####################################################################
+st.write(f"Slide the coefficients  a$_i$, b$_i$ and c$_i$  and the constant x$_{{i,eq}}$ at the sliders in the left side in order to make G$_i$  possess negative values")
 #st.title('Bulk free energies')
 ####################################################################
 # Define the user-defined functions

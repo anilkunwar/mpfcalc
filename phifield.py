@@ -77,25 +77,38 @@ def phase3(x, xeq, a, b, c):
 
 # Get user input for function parameters and colors
 st.sidebar.subheader('phase_1')
-a1 = st.sidebar.slider('Select value for a1', -1.0, 1.0, 0.1,  key='a1')
-b1 = st.sidebar.slider('Select value for b1', -1.0, 1.0, 0.1,   key='b1')
-c1 = st.sidebar.slider('Select value for c1', -1.0, 1.0, 0.1,   key='c1')
-xeq1 = st.sidebar.slider('Select value for xeq1', 0.0, 1.0, 0.1,   key='xeq1')
+# create number input widgets for min and max values
+[a1min, a1max, a1step]  = [st.sidebar.number_input("a1min", value=0.01, format='%.2e'), st.sidebar.number_input("a1max", value=10.0, format='%.2e'), st.sidebar.number_input("a1step", value=0.1, format='%.2e')]
+[b1min, b1max, b1step]  = [st.sidebar.number_input("b1min", value=0.01, format='%.2e'), st.sidebar.number_input("b1max", value=10.0, format='%.2e'), st.sidebar.number_input("b1step", value=0.1, format='%.2e')]
+[c1min, c1max, c1step]  = [st.sidebar.number_input("c1min", value=0.01, format='%.2e'), st.sidebar.number_input("c1max", value=10.0, format='%.2e'), st.sidebar.number_input("c1step", value=0.1, format='%.2e')]
+
+a1 = st.sidebar.slider('Select value for a1', min_value=a1min, max_value=a1max, step=a1step,  key='a1')
+b1 = st.sidebar.slider('Select value for b1', min_value=b1min, max_value=b1max, step=b1step,   key='b1')
+c1 = st.sidebar.slider('Select value for c1', min_value=c1min, max_value=c1max, step=c1step,   key='c1')
+xeq1 = st.sidebar.slider('Select value for x1eq', 0.0, 1.0, 0.1,   key='xeq1')
 color1 = st.sidebar.color_picker('Select color for phase one', '#ff5733', key='color1')
 
 st.sidebar.subheader('phase_2')
-a2 = st.sidebar.slider('Select value for a2', -1.0, 1.0, 0.1,   key='a2')
-b2 = st.sidebar.slider('Select value for b2', -1.0, 1.0, 0.1,   key='b2')
-c2 = st.sidebar.slider('Select value for c2', -1.0, 1.0, 0.1,   key='c2')
+[a2min, a2max, a2step]  = [st.sidebar.number_input("a2min", value=0.01, format='%.2e'), st.sidebar.number_input("a2max", value=10.0, format='%.2e'), st.sidebar.number_input("a2step", value=0.1, format='%.2e')]
+[b2min, b2max, b2step]  = [st.sidebar.number_input("b2min", value=0.01, format='%.2e'), st.sidebar.number_input("b2max", value=10.0, format='%.2e'), st.sidebar.number_input("b2step", value=0.1, format='%.2e')]
+[c2min, c2max, c2step]  = [st.sidebar.number_input("c2min", value=0.01, format='%.2e'), st.sidebar.number_input("c2max", value=10.0, format='%.2e'), st.sidebar.number_input("c2step", value=0.1, format='%.2e')]
+
+a2 = st.sidebar.slider('Select value for a2', min_value=a2min, max_value=a2max, step=a2step,  key='a2')
+b2 = st.sidebar.slider('Select value for b2', min_value=b2min, max_value=b2max, step=b2step,   key='b2')
+c2 = st.sidebar.slider('Select value for c2', min_value=c2min, max_value=c2max, step=c2step,   key='c2')
 xeq2 = st.sidebar.slider('Select value for xeq2', 0.0, 1.0, 0.1, key='xeq2')
 color2 = st.sidebar.color_picker('Select color for phase two', '#338fff', key='color2')    
     
 st.sidebar.subheader('phase_3')
-a3 = st.sidebar.slider('Select value for a3', -1.0, 1.0, 0.1,   key='a3')
-b3 = st.sidebar.slider('Select value for b3', -1.0, 1.0, 0.1,   key='b3')
-c3 = st.sidebar.slider('Select value for c3', -1.0, 1.0, 0.1,   key='c3')
+[a3min, a3max, a3step]  = [st.sidebar.number_input("a3min", value=0.01, format='%.2e'), st.sidebar.number_input("a3max", value=10.0, format='%.2e'), st.sidebar.number_input("a3step", value=0.1, format='%.2e')]
+[b3min, b3max, b3step]  = [st.sidebar.number_input("b3min", value=0.01, format='%.2e'), st.sidebar.number_input("b3max", value=10.0, format='%.2e'), st.sidebar.number_input("b3step", value=0.1, format='%.2e')]
+[c3min, c3max, c3step]  = [st.sidebar.number_input("c3min", value=0.01, format='%.2e'), st.sidebar.number_input("c3max", value=10.0, format='%.2e'), st.sidebar.number_input("c3step", value=0.1, format='%.2e')]
+a3 = st.sidebar.slider('Select value for a3', min_value=a3min, max_value=a3max, step=a3step,  key='a3')
+b3 = st.sidebar.slider('Select value for b3', min_value=b3min, max_value=b3max, step=b3step,   key='b3')
+c3 = st.sidebar.slider('Select value for c3', min_value=c3min, max_value=c3max, step=c3step,   key='c3')
 xeq3 = st.sidebar.slider('Select value for xeq3', 0.0, 1.0, 0.1, key='xeq3')
 color3 = st.sidebar.color_picker('Select color for phase three', '#000000', key='color3')     
+ 
 
 # Generate x values for the functions
 x = np.linspace(0, 1, 10)

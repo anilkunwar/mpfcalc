@@ -37,7 +37,7 @@ factor_interfmobility = (length_scale)**3/(energy_scale*time_scale)
 ####################################################################
 st.title('Enter Physical Quantities in SI Units')
 ####################################################################
-st.write("The model parameters $\kappa$ and MU (hereafter called as $\lambda$) of the phase field models are expressed as  the functions of interface energy ($\sigma$) and diffuse interface width $\delta$,i.e. $\kappa = 0.75 \sigma \delta $ and $ \lambda  =  6 \sigma/ \delta$" )
+st.write("The model parameters $\kappa$ and MU (hereafter called as $\lambda$) of the phase field models are expressed as  the functions of interface energy ($\sigma$) and diffuse interface width ($\delta$),i.e. $\kappa = 0.75 * \sigma \delta $ and $ \lambda  =  6 \sigma/ \delta$" )
 # molar_vol_input = st.number_input("Enter molar volume (e.g. 16.29E-06 m3/mol) :", value=1e-6, format='%.18f', step=1e-6)
 molar_vol_input = st.number_input("Enter molar volume V$_{molar}$ (e.g. 16.29E-06 m^3/mol) :", value=1e-6, format='%.2e', step=1e-6)
 molar_volume = molar_vol_input

@@ -64,17 +64,17 @@ st.write(f"Slide the coefficients  a$_i$, b$_i$ and c$_i$  and the constant x$_{
 # Define the user-defined functions
 def phase1(x, xeq, a, b, c):
     y = gibbs_magnitude*(a * (x-xeq)**2 + b * (x-xeq) + c)
-    st.write(f"Parabolic Fitted G (phase1) in J/mol: G_phase1 = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
+    st.write(f"Parabolic Fitted G (phase1) in J/mol: G_phase1 = {gibbs_magnitude}*({a}*(x-{xeq})$^2$ + {b}*(x-{xeq}) + {c})")
     return y
 
 def phase2(x, xeq, a, b, c):
     y = gibbs_magnitude*(a * (x-xeq)**2 + b * (x-xeq) + c)
-    st.write(f"Parabolic Fitted G (phase2) in J/mol: G_phase2 = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
+    st.write(f"Parabolic Fitted G (phase2) in J/mol: G_phase2 = {gibbs_magnitude}*({a}*(x-{xeq})$^2$ + {b}*(x-{xeq}) + {c})")
     return y
     
 def phase3(x, xeq, a, b, c):
     y = gibbs_magnitude*(a * (x-xeq)**2 + b * (x-xeq) + c)
-    st.write(f"Parabolic Fitted G (phase3) in J/mol: G_phase3 = {gibbs_magnitude}*({a}*(x-{xeq})^2 + {b}*(x-{xeq}) + {c})")
+    st.write(f"Parabolic Fitted G (phase3) in J/mol: G_phase3 = {gibbs_magnitude}*({a}*(x-{xeq})$^2$ + {b}*(x-{xeq}) + {c})")
     return y
 
 # Get user input for function parameters and colors

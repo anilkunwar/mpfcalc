@@ -37,13 +37,13 @@ factor_interfmobility = (length_scale)**3/(energy_scale*time_scale)
 ####################################################################
 st.title('Enter Physical Quantities in SI Units')
 ####################################################################
-st.write("The model parameters $\kappa$ and $\lambda$ of the phase field models are expressed as  the functions of interface energy ($\sigma$) and diffuse interface width $\delta$,i.e. $\kappa = 0.75 \sigma \delta $ and $ \lambda  =  6 \sigma/ \delta$" )
+st.write("The model parameters $\kappa$ and MU (hereafter called as $\lambda$) of the phase field models are expressed as  the functions of interface energy ($\sigma$) and diffuse interface width $\delta$,i.e. $\kappa = 0.75 \sigma \delta $ and $ \lambda  =  6 \sigma/ \delta$" )
 # molar_vol_input = st.number_input("Enter molar volume (e.g. 16.29E-06 m3/mol) :", value=1e-6, format='%.18f', step=1e-6)
-molar_vol_input = st.number_input("V$_{molar}$ (e.g. 16.29E-06 m^3/mol) :", value=1e-6, format='%.2e', step=1e-6)
+molar_vol_input = st.number_input("Enter molar volume V$_{molar}$ (e.g. 16.29E-06 m^3/mol) :", value=1e-6, format='%.2e', step=1e-6)
 molar_volume = molar_vol_input
 kappa_input = st.number_input("Enter $\kappa$ (e.g. 1.0E-8 J/m) :", value=1e-8, format='%.2e', step=1e-8)
 kappa = kappa_input
-mu_input = st.number_input("Enter MU (e.g. 1.0E+8 J/m^3) :", value=1e+8, format='%.2e', step=1e+8)
+mu_input = st.number_input("Enter $\lambda$ (e.g. 1.0E+8 J/m^3) :", value=1e+8, format='%.2e', step=1e+8)
 mu = mu_input
 mobility_M_input = st.number_input("Enter mobility M (e.g. 1.0E-19 m^5/Js) :", value=1e-19, format='%.2e', step=1e-19)
 diffusion_mobility_M = mobility_M_input
@@ -191,7 +191,7 @@ st.title('Scaled Values of Physical Quantities')
 scaled_kappa = kappa*factor_kappa
 st.write(f"$\kappa$ in scaled units: {scaled_kappa}")
 scaled_mu = mu*factor_mu
-st.write(f"MU in scaled units: {scaled_mu}")
+st.write(f"$\lambda$ in scaled units: {scaled_mu}")
 scaled_diffusion_mobility_M=diffusion_mobility_M*factor_mobility
 st.write(f"Diffusion mobility M  in scaled units: {scaled_diffusion_mobility_M}")
 scaled_interfacial_mobility_L=interfacial_mobility_L*factor_interfmobility

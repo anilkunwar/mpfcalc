@@ -169,7 +169,7 @@ chart2 = alt.Chart(df).mark_line().encode(
 ).properties(
     width=1400,
     height=800,
-    title=alt.TitleParams(text="Free energy density in J/m^3", fontSize=20)
+    title=alt.TitleParams(text="Free energy density in J/m\u00B3", fontSize=20)
 ).configure_line(
     strokeWidth=5
 ).configure_legend(

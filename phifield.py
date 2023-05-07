@@ -78,6 +78,8 @@ def phase3(x, xeq, a, b, c):
     return y
 
 # Get user input for function parameters and colors
+# the subscript and superscript are utilized in the labels of altair chart using VEGA-lite syntax
+# e.g. phase_1 = phase\u2081, phase_2 = phase\u2082, phase_3 = phase\u2083
 st.sidebar.subheader('phase\u2081')
 # create number input widgets for min and max values
 [a1min, a1max, a1step]  = [st.sidebar.number_input("a1min", value=0.01, format='%.2e'), st.sidebar.number_input("a1max", value=10.0, format='%.2e'), st.sidebar.number_input("a1step", value=0.1, format='%.2e')]
@@ -129,13 +131,12 @@ df1['function'] = 'phase1'
 df2['function'] = 'phase2'
 df3['function'] = 'phase3'
 df = pd.concat([df1, df2, df3], ignore_index=True)
-# the subscript and superscript are utilized in the labels of altair chart using VEGA-lite syntax
-# e.g. phase_1 = phase\u2081
+
 # Set chart properties for both functions
 chart1 = alt.Chart(df).mark_line().encode(
     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
     y=alt.Y('y', axis=alt.Axis(format="0.1e", title='G (J/mol)', labelFontSize=20, titleFontSize=20)),
-    color=alt.Color('function', scale=alt.Scale(domain=['phase\u2081', 'phase2', 'phase3'], range=[color1, color2, color3]))
+    color=alt.Color('function', scale=alt.Scale(domain=['phase\u2081', 'phase\u2082', 'phase\u2083'], range=[color1, color2, color3], titleFontSize=20))
 ).properties(
     width=1400,
     height=800,
@@ -160,8 +161,8 @@ df = pd.concat([df1, df2, df3], ignore_index=True)
 # Set chart properties for both functions
 chart2 = alt.Chart(df).mark_line().encode(
     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
-    y=alt.Y('y', axis=alt.Axis(format="0.1e", title='f (J/m^3)', labelFontSize=20, titleFontSize=20)),
-    color=alt.Color('function', scale=alt.Scale(domain=['phase\u2081', 'phase2', 'phase3'], range=[color1, color2, color3]))
+    y=alt.Y('y', axis=alt.Axis(format="0.1e", title='f (J/m\u00B3)', labelFontSize=20, titleFontSize=20)),
+    color=alt.Color('function', scale=alt.Scale(domain=['phase\u2081', 'phase\u2082', 'phase\u2083'], range=[color1, color2, color3], titleFontSize=20))
 ).properties(
     width=1400,
     height=800,
@@ -187,7 +188,7 @@ df = pd.concat([df1, df2, df3], ignore_index=True)
 chart3 = alt.Chart(df).mark_line().encode(
     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
     y=alt.Y('y', axis=alt.Axis(format="0.1e", title='fscaled', labelFontSize=20, titleFontSize=20)),
-    color=alt.Color('function', scale=alt.Scale(domain=['phase\u2081', 'phase2', 'phase3'], range=[color1, color2, color3]))
+    color=alt.Color('function', scale=alt.Scale(domain=['phase\u2081', 'phase\u2082', 'phase\u2083'], range=[color1, color2, color3], titleFontSize=20))
 ).properties(
     width=1400,
     height=800,

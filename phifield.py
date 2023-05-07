@@ -143,7 +143,10 @@ chart1 = alt.Chart(df).mark_line().encode(
     title=alt.TitleParams(text="Gibbs free energy in J/mol", fontSize=20)
 ).configure_line(
     strokeWidth=5
-)
+).configure_legend(
+    titleFontSize=25,
+    labelFontSize=20,
+)#.interactive()
 ##########################################################################
 ############J/m3##########################################################
 y1=y1/molar_volume
@@ -169,6 +172,9 @@ chart2 = alt.Chart(df).mark_line().encode(
     title=alt.TitleParams(text="Free energy density in J/m^3", fontSize=20)
 ).configure_line(
     strokeWidth=5
+).configure_legend(
+    titleFontSize=25,
+    labelFontSize=20,
 )#.interactive()
 ##########################################################################
 ############scaled##########################################################
@@ -195,6 +201,9 @@ chart3 = alt.Chart(df).mark_line().encode(
     title=alt.TitleParams(text="Free energy density in scaled units", fontSize=20)
 ).configure_line(
     strokeWidth=5
+).configure_legend(
+    titleFontSize=25,
+    labelFontSize=20,
 ).interactive()
 ##########################################################################
 # Draw the chart

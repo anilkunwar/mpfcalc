@@ -78,7 +78,7 @@ def phase3(x, xeq, a, b, c):
     return y
 
 # Get user input for function parameters and colors
-st.sidebar.subheader('phase_1')
+st.sidebar.subheader('phase\u2081')
 # create number input widgets for min and max values
 [a1min, a1max, a1step]  = [st.sidebar.number_input("a1min", value=0.01, format='%.2e'), st.sidebar.number_input("a1max", value=10.0, format='%.2e'), st.sidebar.number_input("a1step", value=0.1, format='%.2e')]
 [b1min, b1max, b1step]  = [st.sidebar.number_input("b1min", value=0.01, format='%.2e'), st.sidebar.number_input("b1max", value=10.0, format='%.2e'), st.sidebar.number_input("b1step", value=0.1, format='%.2e')]
@@ -90,7 +90,7 @@ c1 = st.sidebar.slider('Select value for c1', min_value=c1min, max_value=c1max, 
 xeq1 = st.sidebar.slider('Select value for x1eq', 0.0, 1.0, 0.1,   key='xeq1')
 color1 = st.sidebar.color_picker('Select color for phase one', '#ff5733', key='color1')
 
-st.sidebar.subheader('phase_2')
+st.sidebar.subheader('phase\u2082')
 [a2min, a2max, a2step]  = [st.sidebar.number_input("a2min", value=0.01, format='%.2e'), st.sidebar.number_input("a2max", value=10.0, format='%.2e'), st.sidebar.number_input("a2step", value=0.1, format='%.2e')]
 [b2min, b2max, b2step]  = [st.sidebar.number_input("b2min", value=0.01, format='%.2e'), st.sidebar.number_input("b2max", value=10.0, format='%.2e'), st.sidebar.number_input("b2step", value=0.1, format='%.2e')]
 [c2min, c2max, c2step]  = [st.sidebar.number_input("c2min", value=0.01, format='%.2e'), st.sidebar.number_input("c2max", value=10.0, format='%.2e'), st.sidebar.number_input("c2step", value=0.1, format='%.2e')]
@@ -101,7 +101,7 @@ c2 = st.sidebar.slider('Select value for c2', min_value=c2min, max_value=c2max, 
 xeq2 = st.sidebar.slider('Select value for xeq2', 0.0, 1.0, 0.1, key='xeq2')
 color2 = st.sidebar.color_picker('Select color for phase two', '#338fff', key='color2')    
     
-st.sidebar.subheader('phase_3')
+st.sidebar.subheader('phase\u2083')
 [a3min, a3max, a3step]  = [st.sidebar.number_input("a3min", value=0.01, format='%.2e'), st.sidebar.number_input("a3max", value=10.0, format='%.2e'), st.sidebar.number_input("a3step", value=0.1, format='%.2e')]
 [b3min, b3max, b3step]  = [st.sidebar.number_input("b3min", value=0.01, format='%.2e'), st.sidebar.number_input("b3max", value=10.0, format='%.2e'), st.sidebar.number_input("b3step", value=0.1, format='%.2e')]
 [c3min, c3max, c3step]  = [st.sidebar.number_input("c3min", value=0.01, format='%.2e'), st.sidebar.number_input("c3max", value=10.0, format='%.2e'), st.sidebar.number_input("c3step", value=0.1, format='%.2e')]

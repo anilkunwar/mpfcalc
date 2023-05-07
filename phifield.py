@@ -129,12 +129,13 @@ df1['function'] = 'phase1'
 df2['function'] = 'phase2'
 df3['function'] = 'phase3'
 df = pd.concat([df1, df2, df3], ignore_index=True)
-
+# the subscript and superscript are utilized in the labels of altair chart using VEGA-lite syntax
+# e.g. phase_1 = phase\u2081
 # Set chart properties for both functions
 chart1 = alt.Chart(df).mark_line().encode(
     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
     y=alt.Y('y', axis=alt.Axis(format="0.1e", title='G (J/mol)', labelFontSize=20, titleFontSize=20)),
-    color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
+    color=alt.Color('function', scale=alt.Scale(domain=['phase\u2081', 'phase2', 'phase3'], range=[color1, color2, color3]))
 ).properties(
     width=1400,
     height=800,
@@ -160,7 +161,7 @@ df = pd.concat([df1, df2, df3], ignore_index=True)
 chart2 = alt.Chart(df).mark_line().encode(
     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
     y=alt.Y('y', axis=alt.Axis(format="0.1e", title='f (J/m^3)', labelFontSize=20, titleFontSize=20)),
-    color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
+    color=alt.Color('function', scale=alt.Scale(domain=['phase\u2081', 'phase2', 'phase3'], range=[color1, color2, color3]))
 ).properties(
     width=1400,
     height=800,
@@ -186,7 +187,7 @@ df = pd.concat([df1, df2, df3], ignore_index=True)
 chart3 = alt.Chart(df).mark_line().encode(
     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
     y=alt.Y('y', axis=alt.Axis(format="0.1e", title='fscaled', labelFontSize=20, titleFontSize=20)),
-    color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
+    color=alt.Color('function', scale=alt.Scale(domain=['phase\u2081', 'phase2', 'phase3'], range=[color1, color2, color3]))
 ).properties(
     width=1400,
     height=800,

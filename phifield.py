@@ -133,7 +133,7 @@ df = pd.concat([df1, df2, df3], ignore_index=True)
 # Set chart properties for both functions
 chart1 = alt.Chart(df).mark_line().encode(
     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
-    y=alt.Y('y', axis=alt.Axis(title='G (J/mol)', labelFontSize=20, titleFontSize=20)),
+    y=alt.Y('y', axis=alt.Axis(format="0.1e", title='G (J/mol)', labelFontSize=20, titleFontSize=20)),
     color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
 ).properties(
     width=1400,
@@ -159,7 +159,7 @@ df = pd.concat([df1, df2, df3], ignore_index=True)
 # Set chart properties for both functions
 chart2 = alt.Chart(df).mark_line().encode(
     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
-    y=alt.Y('y', axis=alt.Axis(title='f (J/m^3)', labelFontSize=20, titleFontSize=20)),
+    y=alt.Y('y', axis=alt.Axis(format="0.1e", title='f (J/m^3)', labelFontSize=20, titleFontSize=20)),
     color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
 ).properties(
     width=1400,
@@ -185,7 +185,7 @@ df = pd.concat([df1, df2, df3], ignore_index=True)
 # Set chart properties for both functions
 chart3 = alt.Chart(df).mark_line().encode(
     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
-    y=alt.Y('y', axis=alt.Axis(title='fscaled', labelFontSize=20, titleFontSize=20)),
+    y=alt.Y('y', axis=alt.Axis(format="0.1e", title='fscaled', labelFontSize=20, titleFontSize=20)),
     color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
 ).properties(
     width=1400,

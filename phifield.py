@@ -3,8 +3,8 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import altair as alt
-import tensorflow as tf
-import matplotlib 
+#import tensorflow as tf
+#import matplotlib 
 
 st.title('Comparing magnitudes of bulk and interfacial properties numerically')
 st.title('Scale Factors')

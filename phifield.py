@@ -5,6 +5,8 @@ import pandas as pd
 import altair as alt
 from bokeh.plotting import figure
 from bokeh.models import BasicTickFormatter
+from bokeh.models.tools import HoverTool
+
 #import tensorflow as tf
 #import matplotlib 
 
@@ -157,6 +159,9 @@ chart1.yaxis.formatter = BasicTickFormatter(precision=1, power_limit_low=1, powe
 chart1.legend.update(title = 'function', title_text_font_size = '15pt', label_text_font_size = '10pt', click_policy = 'hide')
 chart1.add_layout(chart1.legend[0], 'right')
 
+hover = HoverTool(tooltips=[('x', '$x'), ('y', '$y')], mode='mouse', point_policy='snap_to_data')
+chart1.add_tools(hover)
+
 st.bokeh_chart(chart1)
 #################################################
 
@@ -220,6 +225,9 @@ chart2.yaxis.formatter = BasicTickFormatter(precision=1, power_limit_low=1, powe
 chart2.legend.update(title = 'function', title_text_font_size = '15pt', label_text_font_size = '10pt', click_policy = 'hide')
 chart2.add_layout(chart2.legend[0], 'right')
 
+hover = HoverTool(tooltips=[('x', '$x'), ('y', '$y')], mode='mouse', point_policy='snap_to_data')
+chart2.add_tools(hover)
+
 st.bokeh_chart(chart2)
 ###############################################
 
@@ -269,6 +277,8 @@ chart3.yaxis.formatter = BasicTickFormatter(precision=1, power_limit_low=1, powe
 # Configure the legend
 chart3.legend.update(title = 'function', title_text_font_size = '15pt', label_text_font_size = '10pt', click_policy = 'hide')
 chart3.add_layout(chart3.legend[0], 'right')
+hover = HoverTool(tooltips=[('x', '$x'), ('y', '$y')], mode='mouse', point_policy='snap_to_data')
+chart3.add_tools(hover)
 
 st.bokeh_chart(chart3)
 ######################################################

@@ -3,6 +3,8 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import altair as alt
+from bokeh.plotting import figure
+from bokeh.models import BasicTickFormatter
 #import tensorflow as tf
 #import matplotlib 
 
@@ -134,22 +136,60 @@ df2['function'] = 'phase2'
 df3['function'] = 'phase3'
 df = pd.concat([df1, df2, df3], ignore_index=True)
 
-# Set chart properties for both functions
-chart1 = alt.Chart(df).mark_line().encode(
-    x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
-    y=alt.Y('y', axis=alt.Axis(format="0.1e", title='G (J/mol)', labelFontSize=20, titleFontSize=20)),
-    color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
-).properties(
-    width=1400,
-    height=800,
-    title=alt.TitleParams(text="Gibbs free energy in J/mol", fontSize=20)
-).configure_line(
-    strokeWidth=5
-).configure_legend(
-    titleFontSize=25,
-    labelFontSize=20,
-)#.interactive()
-##########################################################################
+
+
+colors = ['red', 'green', 'blue']
+
+##################### Chart 1 ######################
+# Create a figure object
+chart1 = figure(width=700, height=600, title="Gibbs free energy in J/mol", )
+chart1.title.text_font_size = "20pt"
+
+# Plot the lines using a loop
+for i, function in enumerate(['phase1', 'phase2', 'phase3']):
+    chart1.line('x', 'y', source=df[df['function'] == function], color=colors[i], line_width=5, legend_label=function)
+# Configure the axes
+chart1.xaxis.update(axis_label='x', axis_label_text_font_size= '20pt', major_label_text_font_size='20pt')
+chart1.yaxis.update(axis_label='G (J/mol)', axis_label_text_font_size= '20pt', major_label_text_font_size='20pt')
+chart1.yaxis.formatter = BasicTickFormatter(precision=1, power_limit_low=1, power_limit_high=3, use_scientific=True)
+
+# Configure the legend
+chart1.legend.update(title = 'function', title_text_font_size = '15pt', label_text_font_size = '10pt', click_policy = 'hide')
+chart1.add_layout(chart1.legend[0], 'right')
+
+st.bokeh_chart(chart1)
+#################################################
+
+# ############J/mol###################################################
+# # Create a dataframe with x and y values for each function
+# df1 = pd.DataFrame({'x': x, 'y': y1})
+# df2 = pd.DataFrame({'x': x, 'y': y2})
+# df3 = pd.DataFrame({'x': x, 'y': y3})
+# df1['function'] = 'phase1'
+# df2['function'] = 'phase2'
+# df3['function'] = 'phase3'
+# df = pd.concat([df1, df2, df3], ignore_index=True)
+
+# # Set chart properties for both functions
+# chart1 = alt.Chart(df).mark_line().encode(
+#     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
+#     y=alt.Y('y', axis=alt.Axis(format="0.1e", title='G (J/mol)', labelFontSize=20, titleFontSize=20)),
+#     color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
+# ).properties(
+#     width=1400,
+#     height=800,
+#     title=alt.TitleParams(text="Gibbs free energy in J/mol", fontSize=20)
+# ).configure_line(
+#     strokeWidth=5
+# ).configure_legend(
+#     titleFontSize=25,
+#     labelFontSize=20,
+# )#.interactive()
+# ##########################################################################
+
+
+
+
 ############J/m3##########################################################
 y1=y1/molar_volume
 y2=y2/molar_volume
@@ -163,22 +203,43 @@ df2['function'] = 'phase2'
 df3['function'] = 'phase3'
 df = pd.concat([df1, df2, df3], ignore_index=True)
 
-# Set chart properties for both functions
-chart2 = alt.Chart(df).mark_line().encode(
-    x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
-    y=alt.Y('y', axis=alt.Axis(format="0.1e", title='f (J/m\u00B3)', labelFontSize=20, titleFontSize=20)),
-    color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
-).properties(
-    width=1400,
-    height=800,
-    title=alt.TitleParams(text="Free energy density in J/m\u00B3", fontSize=20)
-).configure_line(
-    strokeWidth=5
-).configure_legend(
-    titleFontSize=25,
-    labelFontSize=20,
-)#.interactive()
-##########################################################################
+##################### Chart 2 ######################
+# Create a figure object
+chart2 = figure(width=700, height=600, title="Free energy density in J/m\u00B3", )
+chart2.title.text_font_size = "20pt"
+
+# Plot the lines using a loop
+for i, function in enumerate(['phase1', 'phase2', 'phase3']):
+    chart2.line('x', 'y', source=df[df['function'] == function], color=colors[i], line_width=5, legend_label=function)
+# Configure the axes
+chart2.xaxis.update(axis_label='x', axis_label_text_font_size= '20pt', major_label_text_font_size='20pt')
+chart2.yaxis.update(axis_label='f (J/m\u00B3)', axis_label_text_font_size= '20pt', major_label_text_font_size='20pt')
+chart2.yaxis.formatter = BasicTickFormatter(precision=1, power_limit_low=1, power_limit_high=9, use_scientific=True)
+
+# Configure the legend
+chart2.legend.update(title = 'function', title_text_font_size = '15pt', label_text_font_size = '10pt', click_policy = 'hide')
+chart2.add_layout(chart2.legend[0], 'right')
+
+st.bokeh_chart(chart2)
+###############################################
+
+# # Set chart properties for both functions
+# chart2 = alt.Chart(df).mark_line().encode(
+#     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
+#     y=alt.Y('y', axis=alt.Axis(format="0.1e", title='f (J/m\u00B3)', labelFontSize=20, titleFontSize=20)),
+#     color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
+# ).properties(
+#     width=1400,
+#     height=800,
+#     title=alt.TitleParams(text="Free energy density in J/m\u00B3", fontSize=20)
+# ).configure_line(
+#     strokeWidth=5
+# ).configure_legend(
+#     titleFontSize=25,
+#     labelFontSize=20,
+# )#.interactive()
+# ##########################################################################
+
 ############scaled##########################################################
 y1=y1*factor_bulk
 y2=y2*factor_bulk
@@ -192,27 +253,51 @@ df2['function'] = 'phase2'
 df3['function'] = 'phase3'
 df = pd.concat([df1, df2, df3], ignore_index=True)
 
-# Set chart properties for both functions
-chart3 = alt.Chart(df).mark_line().encode(
-    x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
-    y=alt.Y('y', axis=alt.Axis(format="0.1e", title='fscaled', labelFontSize=20, titleFontSize=20)),
-    color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
-).properties(
-    width=1400,
-    height=800,
-    title=alt.TitleParams(text="Free energy density in scaled units", fontSize=20)
-).configure_line(
-    strokeWidth=5
-).configure_legend(
-    titleFontSize=25,
-    labelFontSize=20,
-).interactive()
-##########################################################################
-# Draw the chart
-st.altair_chart(chart1, use_container_width=True)
-st.altair_chart(chart2, use_container_width=True)
-st.altair_chart(chart3, use_container_width=True)
-####################################################################
+##################### Chart 3 ######################
+# Create a figure object
+chart3 = figure(width=700, height=600, title="Free energy density in scaled units", )
+chart3.title.text_font_size = "20pt"
+
+# Plot the lines using a loop
+for i, function in enumerate(['phase1', 'phase2', 'phase3']):
+    chart3.line('x', 'y', source=df[df['function'] == function], color=colors[i], line_width=5, legend_label=function)
+# Configure the axes
+chart3.xaxis.update(axis_label='x', axis_label_text_font_size= '20pt', major_label_text_font_size='20pt')
+chart3.yaxis.update(axis_label='fscaled', axis_label_text_font_size= '20pt', major_label_text_font_size='20pt')
+chart3.yaxis.formatter = BasicTickFormatter(precision=1, power_limit_low=1, power_limit_high=9, use_scientific=True)
+
+# Configure the legend
+chart3.legend.update(title = 'function', title_text_font_size = '15pt', label_text_font_size = '10pt', click_policy = 'hide')
+chart3.add_layout(chart3.legend[0], 'right')
+
+st.bokeh_chart(chart3)
+######################################################
+
+
+# # Set chart properties for both functions
+# chart3 = alt.Chart(df).mark_line().encode(
+#     x=alt.X('x', axis=alt.Axis(title='x', labelFontSize=20, titleFontSize=20)),
+#     y=alt.Y('y', axis=alt.Axis(format="0.1e", title='fscaled', labelFontSize=20, titleFontSize=20)),
+#     color=alt.Color('function', scale=alt.Scale(domain=['phase1', 'phase2', 'phase3'], range=[color1, color2, color3]))
+# ).properties(
+#     width=1400,
+#     height=800,
+#     title=alt.TitleParams(text="Free energy density in scaled units", fontSize=20)
+# ).configure_line(
+#     strokeWidth=5
+# ).configure_legend(
+#     titleFontSize=25,
+#     labelFontSize=20,
+# ).interactive()
+# ##########################################################################
+# # Draw the chart
+# st.altair_chart(chart1, use_container_width=True)
+# st.altair_chart(chart2, use_container_width=True)
+# st.altair_chart(chart3, use_container_width=True)
+# ####################################################################
+
+
+
 ####################################################################
 st.title('Scaled Values of Physical Quantities')
 ####################################################################
@@ -229,7 +314,6 @@ st.title('How to cite this content:')
 st.write('If you use this calculator for your work, please cite:')
 st.write('Kunwar, A., Yousefi, E., Zuo, X., Sun, Y., Seveno, D., Guo, M., & Moelans, N. (2022). Multi-phase field simulation of Al3Ni2 intermetallic growth at liquid Al/solid Ni interface using MD computed interfacial energies. International Journal of Mechanical Sciences, 215, 106930. https://doi.org/10.1016/j.ijmecsci.2021.106930')
     
-
 
 
 

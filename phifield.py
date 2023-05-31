@@ -6,6 +6,7 @@ import altair as alt
 from bokeh.plotting import figure
 from bokeh.models import BasicTickFormatter
 from bokeh.models.tools import HoverTool
+import run_elmer as elmer
 
 #import tensorflow as tf
 #import matplotlib 

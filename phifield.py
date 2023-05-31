@@ -10,6 +10,19 @@ import run_elmer as elmer
 
 #import tensorflow as tf
 #import matplotlib 
+m = elmer.mesh(
+    [[0, 0],
+     [0, 1],
+     [1, 0],
+     [1, 1]],
+    [[0, 1, 2],
+     [1, 2, 3]]
+).refined(2).with_boundaries({
+    'left': lambda x: x[0] == 0,
+    'right': lambda x: x[0] == 1,
+})
+
+m  # use in Elmer?
 
 st.title('Comparing magnitudes of bulk and interfacial properties numerically')
 st.title('Scale Factors')

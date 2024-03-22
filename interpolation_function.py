@@ -101,7 +101,7 @@ def main():
     ```
     Subedi, U., Moelans, N., Tański, T., & Kunwar, A. (2024). Rapid portabilization  
     of elasto-chemical evolution data for dental Ti-Cr alloy microstructure through
-    sparsification and tensor computation. *Scripta Materialia*, 244, 116027. 
+    sparsification and tensor computation. Scripta Materialia, 244, 116027. 
     DOI: https://doi.org/10.1016/j.scriptamat.2024.116027"
    
     ```

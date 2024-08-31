@@ -41,7 +41,7 @@ def main():
     st.write("### Description:")
     st.write("The sigmoidal interpolation function is given by:")
     st.latex(r'h = \frac{1}{1 + e^{-\theta(2c-1)}}')
-    st.write("where, c is the mole fraction of Cr in the alloy phase. ")
+    st.write("where, c is the mole fraction of Cr in the Ti-Cr alloy phase. ")
     st.write("The term  $\\theta(2c-1)$ is the weighted activation or input to the sigmoidal function.")
     st.write("The constant  $\\theta > 0$ is the weighted parameter controlling/modulating the steepness of the sigmoidal function for a given input feature c.")
     st.write("The mole fraction of Cr is the input feature to the sigmoidal function.")
